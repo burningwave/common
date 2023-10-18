@@ -28,6 +28,8 @@
  */
 module org.burningwave {
 
+	requires java.base;
+
 	exports org.burningwave;
 
 }
