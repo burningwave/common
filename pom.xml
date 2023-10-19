@@ -263,6 +263,7 @@
                 </executions>
 				<configuration>
 					<manifestLocation>${project.build.outputDirectory}/META-INF/</manifestLocation>
+					<exportScr>true</exportScr>
 					<instructions>					
 						<built-by>${organization.name}</built-by>
 						<Bundle-Category>Utilities</Bundle-Category>
@@ -275,6 +276,8 @@
 						<Bundle-Version>${project.version}</Bundle-Version>
 						<Require-Capability>osgi.ee;filter:="(&amp;(osgi.ee=JavaSE)(version=1.8))"</Require-Capability>
 						<Multi-Release>true</Multi-Release>
+    					<_dsannotations>*</_dsannotations><!-- Enable processing of OSGI DS component annotations -->
+						<_metatypeannotations>*</_metatypeannotations><!-- Enable processing of OSGI metatype annotations -->
 					</instructions>
 				</configuration>
 		 	</plugin>
