@@ -265,7 +265,7 @@
 					<manifestLocation>${project.build.outputDirectory}/META-INF/</manifestLocation>
 					<instructions>					
 						<built-by>${organization.name}</built-by>
-						<Bundle-Category>Framework</Bundle-Category>
+						<Bundle-Category>Utilities</Bundle-Category>
 						<Bundle-License>https://github.com/burningwave/common/blob/master/LICENSE</Bundle-License>
 						<Bundle-ManifestVersion>2</Bundle-ManifestVersion>
 						<Bundle-Name>Common</Bundle-Name>
@@ -294,36 +294,6 @@
 				</configuration>
 			</plugin>
 			
-			<plugin>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven-jar-plugin.version}</version>
-				<configuration>
-					<excludes>
-						<exclude>module-info.class</exclude>
-						<exclude>META-INF/maven/</exclude>
-					</excludes>
-					<archive>
-						<addMavenDescriptor>false</addMavenDescriptor>
-						<manifest>
-							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-						</manifest>
-						<manifestEntries>
-							<built-by>${organization.name}</built-by>
-							<Bundle-Category>Framework</Bundle-Category>
-							<Bundle-License>https://github.com/burningwave/common/blob/master/LICENSE</Bundle-License>
-							<Bundle-ManifestVersion>2</Bundle-ManifestVersion>
-							<Bundle-Name>Common</Bundle-Name>
-							<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
-							<Bundle-Vendor>${organization.name}</Bundle-Vendor>
-							<Bundle-Description>${project.description}</Bundle-Description>
-							<Bundle-Version>${project.version}</Bundle-Version>
-							<Require-Capability>osgi.ee;filter:="(&amp;(osgi.ee=JavaSE)(version=1.8))"</Require-Capability>
-							<Multi-Release>true</Multi-Release>
-						</manifestEntries>
-					</archive>
-				</configuration>
-			</plugin>
 			<plugin>
 				<artifactId>maven-deploy-plugin</artifactId>
 				<version>${maven-deploy-plugin.version}</version>
