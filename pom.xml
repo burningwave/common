@@ -95,6 +95,7 @@
 		<junit-jupiter.version>5.9.1</junit-jupiter.version>
 		<junit.version>1.9.1</junit.version>
 		<maven-antrun-plugin.version>3.0.0</maven-antrun-plugin.version>
+		<maven-bundle-plugin.version>5.1.9</maven-bundle-plugin.version>
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
 		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
@@ -245,7 +246,54 @@
 					<useModulePath>false</useModulePath>
 				</configuration>
 			</plugin>
-
+			
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>${maven-bundle-plugin.version}</version>
+				<extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <id>generate-manifest</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>manifest</goal>
+                        </goals>
+                    </execution>
+                </executions>
+				<configuration>
+					<manifestLocation>${project.build.outputDirectory}/META-INF/</manifestLocation>
+					<instructions>					
+						<built-by>${organization.name}</built-by>
+						<Bundle-Category>Framework</Bundle-Category>
+						<Bundle-License>https://github.com/burningwave/common/blob/master/LICENSE</Bundle-License>
+						<Bundle-ManifestVersion>2</Bundle-ManifestVersion>
+						<Bundle-Name>Common</Bundle-Name>
+						<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Vendor>${organization.name}</Bundle-Vendor>
+						<Bundle-Description>${project.description}</Bundle-Description>
+						<Bundle-Version>${project.version}</Bundle-Version>
+						<Require-Capability>osgi.ee;filter:="(&amp;(osgi.ee=JavaSE)(version=1.8))"</Require-Capability>
+						<Multi-Release>true</Multi-Release>
+					</instructions>
+				</configuration>
+		 	</plugin>
+		 	
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven-jar-plugin.version}</version>
+				<configuration>
+					<excludes>
+						<exclude>module-info.class</exclude>
+						<exclude>META-INF/maven/</exclude>
+					</excludes>
+					<archive>
+						<addMavenDescriptor>false</addMavenDescriptor>
+						<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+					</archive>
+				</configuration>
+			</plugin>
+			
 			<plugin>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>${maven-jar-plugin.version}</version>
@@ -261,13 +309,13 @@
 							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
 						</manifest>
 						<manifestEntries>
-							<built-by>Burningwave</built-by>
+							<built-by>${organization.name}</built-by>
 							<Bundle-Category>Framework</Bundle-Category>
 							<Bundle-License>https://github.com/burningwave/common/blob/master/LICENSE</Bundle-License>
 							<Bundle-ManifestVersion>2</Bundle-ManifestVersion>
 							<Bundle-Name>Common</Bundle-Name>
 							<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
-							<Bundle-Vendor>Burningwave</Bundle-Vendor>
+							<Bundle-Vendor>${organization.name}</Bundle-Vendor>
 							<Bundle-Description>${project.description}</Bundle-Description>
 							<Bundle-Version>${project.version}</Bundle-Version>
 							<Require-Capability>osgi.ee;filter:="(&amp;(osgi.ee=JavaSE)(version=1.8))"</Require-Capability>
