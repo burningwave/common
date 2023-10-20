@@ -7,40 +7,9 @@ import org.junit.runner.RunWith;
 
 @SuppressWarnings("unused")
 @RunWith(JUnitPlatform.class)
-//@SelectPackages("org.burningwave.core")
+//@SelectPackages("org.burningwave.common")
 @SelectClasses({
-//	ModulesTest.class,
-//	BackgroundExecutorTest.class,
-//	ByteBufferHandlerTest.class,
-//	ByteCodeHunterTest.class,
-//    ClassesTest.class,
-//    ClassFactoryTest.class,
-//    ComponentContainerTest.class,
-//    ClassHunterTest.class,
-//    ClassLoadersTest.class,
-//    ClassPathHunterTest.class,
-//    CodeExecutorTest.class,
-//    ConstructorsTest.class,
-//    FieldsTest.class,
-//    FileSystemHelperTest.class,
-//    FileSystemItemTest.class,
-//    FunctionalInterfaceFactoryTest.class,
-//    IterableObjectHelperTest.class,
-//    IterableZipContainerTest.class,
-//    ManagedLoggerRepositoryTest.class,
-//    MembersTest.class,
-//    MemoryClassLoaderTest.class,
-//    MethodsTest.class,
-//    PathHelperTest.class,
-//    PathScannerClassLoaderTest.class,
-//    FieldAccessorTest.class,
-//    PropertiesTest.class,
-//    SourceCodeHandlerTest.class,
-//    StringsTest.class,
-//    ThreadSupplierTest.class,
-//    UnitSourceGeneratorTest.class,
-//    RepeatedClassFactoryTest.class,
-//    RepeatedComponentContainerTest.class
+
 })
 @ExcludeTags("Heavy")
 public class AllExceptHeavyTestsSuite {
