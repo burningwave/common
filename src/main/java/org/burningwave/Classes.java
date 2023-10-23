@@ -74,8 +74,8 @@ public class Classes {
 		return cls;
 	}
 
-	public boolean isAssignableFrom(Class<?> cls_01, Class<?> cls_02) {
-		return getClassOrWrapper(cls_01).isAssignableFrom(getClassOrWrapper(cls_02));
+	public boolean isAssignableFrom(Class<?> clsOne, Class<?> clsTwo) {
+		return getClassOrWrapper(clsOne).isAssignableFrom(getClassOrWrapper(clsTwo));
 	}
 
 	public <T> Class<T> retrieveFrom(Object object) {
