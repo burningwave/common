@@ -11,10 +11,10 @@
 
 [![Supported JVM](https://img.shields.io/badge/supported%20JVM-8%2C%209+-blueviolet)](https://github.com/burningwave/common/actions/runs/6629732375)
 
-[![GitHub open issues](https://img.shields.io/github/issues/burningwave/common)](https://github.com/burningwave/json/issues)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed/burningwave/common)](https://github.com/burningwave/json/issues?q=is%3Aissue+is%3Aclosed)
+[![GitHub open issues](https://img.shields.io/github/issues/burningwave/common)](https://github.com/burningwave/common/issues)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed/burningwave/common)](https://github.com/burningwave/common/issues?q=is%3Aissue+is%3Aclosed)
 
-[![Artifact downloads](https://www.burningwave.org/generators/generate-burningwave-artifact-downloads-badge.php?artifactId=common)](https://www.burningwave.org/artifact-downloads/?show-overall-trend-chart=false&artifactId=json&startDate=2023-10)
+[![Artifact downloads](https://www.burningwave.org/generators/generate-burningwave-artifact-downloads-badge.php?artifactId=common)](https://www.burningwave.org/artifact-downloads/?show-overall-trend-chart=false&artifactId=common&startDate=2023-10)
 [![Repository dependents](https://badgen.net/github/dependents-repo/burningwave/common)](https://github.com/burningwave/common/network/dependents)
 [![HitCount](https://www.burningwave.org/generators/generate-visited-pages-badge.php)](https://www.burningwave.org#bw-counters)
 
@@ -49,6 +49,6 @@ requires org.burningwave;
 
 # <a name="Ask-for-assistance"></a>Ask for assistance
 If this guide can't help you, you can:
-* [open a discussion](https://github.com/burningwave/json/discussions) here on GitHub
-* [report a bug](https://github.com/burningwave/json/issues) here on GitHub
+* [open a discussion](https://github.com/burningwave/common/discussions) here on GitHub
+* [report a bug](https://github.com/burningwave/common/issues) here on GitHub
 * ask on [Stack Overflow](https://stackoverflow.com/search?q=burningwave)
