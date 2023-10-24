@@ -37,7 +37,7 @@ To include Burningwave Common library in your projects simply use with **Apache 
 </dependency>
 ```
 
-### Requiring the Burningwave JSON module
+### Requiring the Burningwave Common module
 
 To use Burningwave Common as a Java module you need to add the following to your `module-info.java`: 
 
