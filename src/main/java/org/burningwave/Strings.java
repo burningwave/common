@@ -33,7 +33,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class Strings {
-	public final static Strings INSTANCE;
+	public static final Strings INSTANCE;
 
 	static {
 		INSTANCE = new Strings();
