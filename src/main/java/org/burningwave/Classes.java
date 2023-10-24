@@ -118,7 +118,7 @@ public class Classes {
 		return classSimpleName;
 	}
 
-	public boolean isPrimitiveOrWrappedPrimitive(Object object) {
+	public boolean isPrimitive(Object object) {
 		return object instanceof String ||
 			object instanceof Short ||
 			object instanceof Integer ||
