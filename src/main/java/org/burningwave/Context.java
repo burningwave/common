@@ -33,10 +33,10 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @SuppressWarnings("unchecked")
 public class Context {
-	protected Map<Enum<?>, Object> context;
+	protected Map<Enum<?>, Object> objects;
 
 	protected Context() {
-		context = new ConcurrentHashMap<>();
+		objects = new ConcurrentHashMap<>();
 	}
 
 	public static Context create() {
@@ -44,14 +44,14 @@ public class Context {
 	}
 
 	public <T> T get(Enum<?> name) {
-		return ((T)context.get(name));
+		return ((T)objects.get(name));
 	}
 
 	public Context put(Enum<?> name, Object parameter) {
 		if (parameter != null) {
-			context.put(name, parameter);
+			objects.put(name, parameter);
 		} else {
-			context.remove(name);
+			objects.remove(name);
 		}
 		return this;
 	}

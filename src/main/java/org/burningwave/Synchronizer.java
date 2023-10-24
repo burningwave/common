@@ -35,7 +35,7 @@ import java.util.function.Supplier;
 
 public class Synchronizer {
 
-	public final static Synchronizer INSTANCE;
+	public static final Synchronizer INSTANCE;
 
 	static {
 		INSTANCE = new Synchronizer();

@@ -29,7 +29,7 @@
 package org.burningwave;
 
 public class Objects {
-	public final static Objects INSTANCE;
+	public static final Objects INSTANCE;
 
 	static {
 		INSTANCE = new Objects();

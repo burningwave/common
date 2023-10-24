@@ -35,26 +35,27 @@ import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
 
 @SuppressWarnings("unchecked")
 public class Criteria<E, C extends Criteria<E, C, T>, T extends Criteria.TestContext<E, C>> {
 
-	protected Function<BiPredicate<T, E>, BiPredicate<T, E>> logicalOperator;
+	protected UnaryOperator<BiPredicate<T, E>> logicalOperator;
 
 	protected BiPredicate<T, E> predicate;
 
-	public final static <E, C extends Criteria<E, C, T>, T extends Criteria.TestContext<E, C>> Criteria<E, C, T> of(final BiPredicate<T, E> predicate) {
+	public static final <E, C extends Criteria<E, C, T>, T extends Criteria.TestContext<E, C>> Criteria<E, C, T> of(final BiPredicate<T, E> predicate) {
 		return new Criteria<E, C, T>().allThoseThatMatch(predicate);
 	}
 
-	public final static <E, C extends Criteria<E, C, T>, T extends Criteria.TestContext<E, C>> Criteria<E, C, T> of(final Predicate<E> predicate) {
+	public static final <E, C extends Criteria<E, C, T>, T extends Criteria.TestContext<E, C>> Criteria<E, C, T> of(final Predicate<E> predicate) {
 		return new Criteria<E, C, T>().allThoseThatMatch(predicate);
 	}
 
 	public C allThoseThatMatch(final BiPredicate<T, E> predicate) {
 		this.predicate = concat(
 			this.predicate,
-			(context, entity) -> predicate.test(context, entity)
+			predicate::test
 		);
 		return (C)this;
 	}
@@ -141,7 +142,7 @@ public class Criteria<E, C extends Criteria<E, C, T>, T extends Criteria.TestCon
 	@SuppressWarnings("hiding")
 	protected <E, C extends Criteria<E, C, T>, T extends Criteria.TestContext<E, C>> BiPredicate<T, E> concat(
 		BiPredicate<T, E> mainPredicate,
-		Function<BiPredicate<T, E>, BiPredicate<T, E>> logicalOperator,
+		UnaryOperator<BiPredicate<T, E>> logicalOperator,
 		BiPredicate<T, E> otherPredicate
 	) {
 		return Optional.ofNullable(otherPredicate).map(othPred ->
@@ -179,7 +180,6 @@ public class Criteria<E, C extends Criteria<E, C, T>, T extends Criteria.TestCon
 					break;
 				}
 			}
-			//logDebug("test for {} return {}", entity, result);
 			return result;
 		});
 	}
@@ -209,8 +209,7 @@ public class Criteria<E, C extends Criteria<E, C, T>, T extends Criteria.TestCon
 	@SuppressWarnings("hiding")
 	<E, C extends Criteria<E, C, T>, T extends Criteria.TestContext<E, C>> BiPredicate<T,E> consumeLogicalOperator(
 		BiPredicate<T, E> input,
-		Function<BiPredicate<T, E>,
-		BiPredicate<T, E>> logicalOperator
+		UnaryOperator<BiPredicate<T, E>> logicalOperator
 	) {
 		return Optional.ofNullable(logicalOperator).map(logOp -> {
 			return logicalOperator.apply(input);
@@ -234,15 +233,14 @@ public class Criteria<E, C extends Criteria<E, C, T>, T extends Criteria.TestCon
 	private Predicate<E> getPredicate(T context, boolean defaultResult) {
 		return context.setPredicate(
 			this.predicate != null?
-				(entity) -> {
-				return context.setEntity(entity).setResult(this.predicate.test(
-					context,
-					entity
-				)).getResult();
-			} :
-			(entity) -> {
-				return context.setEntity(entity).setResult(defaultResult).getResult();
-			}
+				(entity) ->
+					context.setEntity(entity).setResult(this.predicate.test(
+						context,
+						entity
+					)).getResult()
+			: (entity) ->
+				context.setEntity(entity).setResult(defaultResult).getResult()
+
 		).getPredicate();
 	}
 
@@ -275,13 +273,13 @@ public class Criteria<E, C extends Criteria<E, C, T>, T extends Criteria.TestCon
 
 	public static class Simple<E, C extends Simple<E, C>> {
 
-		protected Function<Predicate<E>, Predicate<E>> logicalOperator;
+		protected UnaryOperator<Predicate<E>> logicalOperator;
 		protected Predicate<E> predicate;
 
 		public C allThoseThatMatch(final Predicate<E> predicate) {
 			this.predicate = concat(
 				this.predicate,
-				(entity) -> predicate.test(entity)
+				predicate::test
 			);
 			return (C)this;
 		}
@@ -365,7 +363,7 @@ public class Criteria<E, C extends Criteria<E, C, T>, T extends Criteria.TestCon
 		@SuppressWarnings("hiding")
 		protected <E, C extends Simple<E, C>> Predicate<E> concat(
 			Predicate<E> mainPredicate,
-			Function<Predicate<E>, Predicate<E>> logicalOperator,
+			UnaryOperator<Predicate<E>> logicalOperator,
 			Predicate<E> otherPredicate
 		) {
 			return Optional.ofNullable(otherPredicate).map(othPred ->
@@ -396,7 +394,6 @@ public class Criteria<E, C extends Criteria<E, C, T>, T extends Criteria.TestCon
 						break;
 					}
 				}
-				//logDebug("test for {} return {}", entity, result);
 				return result;
 			});
 		}
@@ -426,8 +423,7 @@ public class Criteria<E, C extends Criteria<E, C, T>, T extends Criteria.TestCon
 		@SuppressWarnings("hiding")
 		<E, C extends Simple<E, C>> Predicate<E> consumeLogicalOperator (
 			Predicate<E> input,
-			Function<Predicate<E>,
-			Predicate<E>> logicalOperator
+			UnaryOperator<Predicate<E>> logicalOperator
 		) {
 			return Optional.ofNullable(logicalOperator).map(logOp -> {
 				return logicalOperator.apply(input);
