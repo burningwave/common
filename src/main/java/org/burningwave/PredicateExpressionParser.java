@@ -38,7 +38,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PredicateExpressionParser<I> {
-	protected final static Pattern andOrSlashSplitter = Pattern.compile("(.*?)(&|\\||\\/)");
+	protected static final Pattern andOrSlashSplitter = Pattern.compile("(.*?)([&\\|\\/])");
 
 	protected Map<String, PreProcessor> preProcessors;
 	protected Map<Predicate<String>, Function<String, Function<Object[], Predicate<I>>>> simpleExpressions;
