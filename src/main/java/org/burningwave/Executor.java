@@ -45,7 +45,9 @@ public interface Executor {
 			try {
 				return supplier.get();
 			} catch (Throwable exc) {
-				exception = exc;
+				if (exception != null) {
+					exception = exc;
+				}
 			}
 		}
 		return Throwables.INSTANCE.throwException(exception);

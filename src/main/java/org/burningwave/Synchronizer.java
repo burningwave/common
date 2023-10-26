@@ -30,6 +30,7 @@ package org.burningwave;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 
@@ -77,6 +78,38 @@ public class Synchronizer {
         	}
 		}
     }
+
+	public <E extends Throwable> void execute(String id, Consumer<Mutex> executable) throws E {
+		try (Mutex mutex = getMutex(id);) {
+			synchronized (mutex) {
+				executable.accept(mutex);
+			}
+		}
+	}
+
+	public <E extends Throwable> void executeThrower(String id, ThrowingRunnable<E> executable) throws E {
+		try (Mutex mutex = getMutex(id);) {
+			synchronized (mutex) {
+				executable.run();
+			}
+		}
+	}
+
+	public <E extends Throwable> void executeThrower(String id, ThrowingConsumer<Mutex, E> executable) throws E {
+		try (Mutex mutex = getMutex(id);) {
+			synchronized (mutex) {
+				executable.accept(mutex);
+			}
+		}
+	}
+
+	public <T, E extends Throwable> T executeThrower(String id, ThrowingSupplier<T, E> executable) throws E {
+		try (Mutex mutex = getMutex(id);) {
+			synchronized (mutex) {
+				return executable.get();
+			}
+		}
+	}
 
 	public class Mutex implements java.io.Closeable {
 		int clientsCount = 1;
