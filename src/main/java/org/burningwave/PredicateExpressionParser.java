@@ -118,7 +118,7 @@ public class PredicateExpressionParser<I> {
 		return predicate;
 	}
 
-	static String bracketAreasToPlaceholders(String expression, Map<String, Object> values) {
+	protected static String bracketAreasToPlaceholders(String expression, Map<String, Object> values) {
 		String replacedExpression = null;
 		while (!expression.equals(replacedExpression = findAndReplaceNextBracketArea(expression, values))) {
 			expression = replacedExpression;
@@ -126,7 +126,7 @@ public class PredicateExpressionParser<I> {
 		return expression;
 	}
 
-	static String findAndReplaceNextBracketArea(String expression, Map<String, Object> values) {
+	protected static String findAndReplaceNextBracketArea(String expression, Map<String, Object> values) {
 		values.computeIfAbsent("nestedIndex", key -> 0);
 		int firstLeftBracketIndex = expression.indexOf("(");
 		if (firstLeftBracketIndex > -1) {
@@ -142,7 +142,7 @@ public class PredicateExpressionParser<I> {
 		return expression;
 	}
 
-	static int findClose(String input, int start) {
+	protected static int findClose(String input, int start) {
         ArrayDeque<Integer> stack = new ArrayDeque<>();
         for (int index = start; index < input.length(); index++) {
             if (input.charAt(index) == '(') {
