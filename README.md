@@ -7,9 +7,9 @@
 [![Maven Central with version prefix filter](https://img.shields.io/maven-central/v/org.burningwave/common/0)](https://maven-badges.herokuapp.com/maven-central/org.burningwave/common/)
 [![GitHub](https://img.shields.io/github/license/burningwave/common)](https://github.com/burningwave/common/blob/master/LICENSE)
 
-[![Platforms](https://img.shields.io/badge/platforms-Windows%2C%20Mac%20OS%2C%20Linux-orange)](https://github.com/burningwave/common/actions/runs/6629732375)
+[![Platforms](https://img.shields.io/badge/platforms-Windows%2C%20Mac%20OS%2C%20Linux-orange)](https://github.com/burningwave/common/actions/runs/6652612570)
 
-[![Supported JVM](https://img.shields.io/badge/supported%20JVM-8%2C%209+-blueviolet)](https://github.com/burningwave/common/actions/runs/6629732375)
+[![Supported JVM](https://img.shields.io/badge/supported%20JVM-8%2C%209+-blueviolet)](https://github.com/burningwave/common/actions/runs/6652612570)
 
 [![GitHub open issues](https://img.shields.io/github/issues/burningwave/common)](https://github.com/burningwave/common/issues)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/burningwave/common)](https://github.com/burningwave/common/issues?q=is%3Aissue+is%3Aclosed)
@@ -33,7 +33,7 @@ To include Burningwave Common library in your projects simply use with **Apache 
 <dependency>
     <groupId>org.burningwave</groupId>
     <artifactId>common</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.1</version>
 </dependency>
 ```
 
