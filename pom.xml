@@ -90,10 +90,10 @@
 		<repository.url>https://burningwave@github.com/burningwave/common.git</repository.url>
 
 		<coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
-		<logback.version>1.2.11</logback.version>
+		<logback.version>1.3.11</logback.version>
 		<jacoco-maven-plugin.version>0.7.6.201602180812</jacoco-maven-plugin.version>
-		<junit-jupiter.version>5.9.1</junit-jupiter.version>
-		<junit.version>1.9.1</junit.version>
+		<junit-jupiter.version>5.10.0</junit-jupiter.version>
+		<junit.version>1.10.0</junit.version>
 		<maven-antrun-plugin.version>3.0.0</maven-antrun-plugin.version>
 		<maven-bundle-plugin.version>5.1.9</maven-bundle-plugin.version>
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
@@ -105,7 +105,7 @@
 		<maven-release-plugin.version>2.5.3</maven-release-plugin.version>
 		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
 		<maven-scm-provider-gitexe.version>1.9.5</maven-scm-provider-gitexe.version>
-		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+		<maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
 		<nexus-staging-maven-plugin.version>1.6.12</nexus-staging-maven-plugin.version>
 		<slf4j.version>2.0.9</slf4j.version>
 	</properties>
