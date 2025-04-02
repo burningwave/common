@@ -95,7 +95,7 @@ public class PredicateExpressionParser<I> {
 		Predicate<I> predicate = null;
 		String logicalOperator = null;
 		while (logicalOperatorSplitter.find()) {
-			String originalPredicateUnitExpression = logicalOperatorSplitter.group(1);
+			String originalPredicateUnitExpression = logicalOperatorSplitter.group(1).trim();
 			String predicateUnitExpression = originalPredicateUnitExpression.startsWith("!") ?
 				originalPredicateUnitExpression.split("\\!")[1] :
 				originalPredicateUnitExpression;
@@ -190,7 +190,7 @@ public class PredicateExpressionParser<I> {
 			expression = bracketAreasToPlaceholders(expression, nestedExpressionsData);
 			Matcher logicalOperatorSplitter = andOrSlashSplitter.matcher(expression + "/");
 			while (logicalOperatorSplitter.find()) {
-				String originalPredicateUnitExpression = logicalOperatorSplitter.group(1);
+				String originalPredicateUnitExpression = logicalOperatorSplitter.group(1).trim();
 				String predicateUnitExpression = originalPredicateUnitExpression.startsWith("!") ?
 					logicalOperatorSplitter.group(1).split("\\!")[1] :
 					originalPredicateUnitExpression;
