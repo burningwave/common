@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @RunWith(JUnitPlatform.class)
 //@SelectPackages("org.burningwave.common")
 @SelectClasses({
-
+	EmptyTest.class
 })
 @ExcludeTags("Heavy")
 public class AllExceptHeavyTestsSuite {
