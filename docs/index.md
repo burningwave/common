@@ -33,7 +33,7 @@ To include Burningwave Common library in your projects simply use with **Apache 
 <dependency>
     <groupId>org.burningwave</groupId>
     <artifactId>common</artifactId>
-    <version>0.4.0</version>
+    <version>0.4.1</version>
 </dependency>
 ```
 
