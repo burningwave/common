@@ -7,9 +7,9 @@
 [![Maven Central with version prefix filter](https://img.shields.io/maven-central/v/org.burningwave/common/0)](https://maven-badges.herokuapp.com/maven-central/org.burningwave/common/)
 [![GitHub](https://img.shields.io/github/license/burningwave/common)](https://github.com/burningwave/common/blob/master/LICENSE)
 
-[![Platforms](https://img.shields.io/badge/platforms-Windows%2C%20Mac%20OS%2C%20Linux-orange)](https://github.com/burningwave/common/actions/runs/6653290072)
+[![Platforms](https://img.shields.io/badge/platforms-Windows%2C%20Mac%20OS%2C%20Linux-orange)](https://github.com/burningwave/common/actions/runs/14230822015)
 
-[![Supported JVM](https://img.shields.io/badge/supported%20JVM-8%2C%209+-blueviolet)](https://github.com/burningwave/common/actions/runs/6653290072)
+[![Supported JVM](https://img.shields.io/badge/supported%20JVM-8%2C%209+-blueviolet)](https://github.com/burningwave/common/actions/runs/14230822015)
 
 [![GitHub open issues](https://img.shields.io/github/issues/burningwave/common)](https://github.com/burningwave/common/issues)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/burningwave/common)](https://github.com/burningwave/common/issues?q=is%3Aissue+is%3Aclosed)
